@@ -1,0 +1,8 @@
+{
+    "names": {
+      "sada": "d5e9514e657f7d0c9986c972c95c453166b6d186194e651baff54bf513165aa9",
+    },
+    "relays": {
+    "d5e9514e657f7d0c9986c972c95c453166b6d186194e651baff54bf513165aa9": [ "wss://e.nos.lol/","wss://nostr.mom/" ]
+  }
+  }
