@@ -1,8 +1,8 @@
 {
     "names": {
-      "sada": "d5e9514e657f7d0c9986c972c95c453166b6d186194e651baff54bf513165aa9",
+      "sada": "435ebc337c98925067926a15fd7daf179b5bc1aae741b5d37a43a3fbbd3e494e",
     },
     "relays": {
-    "d5e9514e657f7d0c9986c972c95c453166b6d186194e651baff54bf513165aa9": [ "wss://e.nos.lol/","wss://nostr.mom/" ]
+    "435ebc337c98925067926a15fd7daf179b5bc1aae741b5d37a43a3fbbd3e494e": [ "wss://e.nos.lol/","wss://nostr.mom/" ]
   }
   }
