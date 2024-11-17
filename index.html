@@ -3,13 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Counter Example</title>
+  <title>game game</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Counter</h1>
-  <p>The count is: <span id="count">0</span></p>
-  <button id="increment-btn">Increment</button>
+  <div class="game-wrapper">
+
+  </div>
+
+
+  <div class="game-wrapper">
+    <!-- Start Screen -->
+    <div id="start-screen" class="start-screen">
+      <h1>👇Earn Money Online👇</h1>
+      <button id="start-button" class="start-btn">Make Bank</button>
+    </div>
+  
+    <!-- Game Content (initially hidden) -->
+    <div id="game-content" class="game-content hidden">
+      <header>
+        <h1>Bitcoin Empire</h1>
+        <div class="stats-bar">
+          <div class="money-display">
+            <h2>🍊 丰<span id="count">0</span></h2>
+            <div class="income-rate">+丰<span id="income-rate">0</span>/sec</div>
+          </div>
+        </div>
+      </header>
+  
+      <main class="game-container">
+        <div class="click-section">
+          <button id="increment-btn" class="money-btn">
+            <span class="click-feedback">+丰<span id="click-power-display">1</span></span>
+          </button>
+          <div class="click-label">Click to ☝️ Earn Sats!</div>
+        </div>
+  
+        <div class="content-section">
+          <div class="upgrades-container">
+            
+            <!-- Basic Income Sources -->
+            <div class="business-section">
+              <div class="business-item">
+                <div class="business-icon">📠</div>
+                <h3>mini miner</h3>
+                <p class="income-text">Earns 丰0.1/sec</p>
+                <p class="owned-text">Owned: <span id="lemonade-count">0</span></p>
+                <button id="buy-lemonade" class="btn-clickable">Buy ($<span id="lemonade-cost">10</span>)</button>
+              </div>
+              
+              <div class="business-item">
+                <div class="business-icon">🏭</div>
+                <h3>Miner</h3>
+                <p class="income-text">Earns 丰1/sec</p>
+                <p class="owned-text">Owned: <span id="coffee-count">0</span></p>
+                <button id="buy-coffee" class="btn-clickable">Buy (丰<span id="coffee-cost">50</span>)</button>
+              </div>
+            </div>
+            
+            <!-- Upgrades Section -->
+            <div class="upgrade-section">
+              <div class="upgrade-item">
+                <div class="upgrade-icon">⚡</div>
+                <h4>Click Power</h4>
+                <p>Current: 丰<span id="click-power">1</span> per click</p>
+                <button id="upgrade-click" class="btn-clickable">Upgrade (丰<span id="click-upgrade-cost">20</span>)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
 
   <script src="main.js"></script>
 </body>
