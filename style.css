@@ -1,3 +1,7 @@
+:root {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +10,10 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  /*background: linear-gradient(135deg, #1a1a2e, #16213e);*/
   color: #ffffff;
   min-height: 100vh;
+  transition: background-color 1s ease;
 }
 
 .game-wrapper {

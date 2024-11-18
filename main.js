@@ -42,22 +42,38 @@ startButton.addEventListener('click', startGame);
 
 // Modify your game loop to only run when the game has started
 let lastUpdate = Date.now();
+let intervalId;
+
+function changeBackgroundColor() {
+  const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  document.body.style.backgroundColor = randomColor;
+}
 
 function gameLoop() {
-    if (gameStarted) {
-        const currentTime = Date.now();
-        const deltaTime = (currentTime - lastUpdate) / 1000; // Convert to seconds
-        
-        // Update money based on actual elapsed time
-        state.money += calculateIncomePerSecond() * deltaTime;
-        
-        // Only update displays if values changed significantly
-        if (Math.abs(deltaTime) >= 0.1) { // Update every 100ms
-            updateDisplays();
-            lastUpdate = currentTime;
-        }
+  if (gameStarted) {
+    
+    const currentTime = Date.now();
+    const deltaTime = (currentTime - lastUpdate) / 1000; // Convert to seconds
+    
+    // Update money based on actual elapsed time
+    state.money += calculateIncomePerSecond() * deltaTime;
+
+    // Only update displays if values changed significantly
+    if (Math.abs(deltaTime) >= 0.1) { // Update every 100ms
+      updateDisplays();
+      lastUpdate = currentTime;
+
+      // Check if the count is above 100 and start changing the background color
+      if (state.money > 1000 && !intervalId) {
+        intervalId = setInterval(changeBackgroundColor, 1000);
+      } else if (state.money <= 1000 && intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+        document.body.style.backgroundColor = ''; // Reset the background color
+      }
     }
-    requestAnimationFrame(gameLoop);
+  }
+  requestAnimationFrame(gameLoop);
 }
 
 // Start the game loop
@@ -92,7 +108,7 @@ function formatMoney(amount) {
 function calculateIncomePerSecond() {
   let income = 0;
   for (let [business, data] of Object.entries(state.businesses)) {
-      income += data.baseIncome * data.count;
+      income += data.baseIncome * data.count;  
   }
   return income;
 }
