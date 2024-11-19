@@ -109,7 +109,7 @@ function formatMoney(amount) {
 function calculateIncomePerSecond() {
   let income = 0;
   for (let [business, data] of Object.entries(state.businesses)) {
-      income += data.baseIncome * data.count * data.baseIncome * data.count;  
+      income += data.baseIncome * data.count * data.count * data.baseIncome * data.count;  
   }
   return income;
 }
