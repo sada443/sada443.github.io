@@ -2,6 +2,7 @@
 const startScreen = document.getElementById('start-screen');
 const gameContent = document.getElementById('game-content');
 const startButton = document.getElementById('start-button');
+const headerElement = document.getElementById('header');
 
 // Initially pause the game loop
 let gameStarted = false;
@@ -46,7 +47,7 @@ let intervalId;
 
 function changeBackgroundColor() {
   const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-  document.body.style.backgroundColor = randomColor;
+  headerElement.style.backgroundColor = randomColor;
 }
 
 function gameLoop() {
@@ -64,7 +65,7 @@ function gameLoop() {
       lastUpdate = currentTime;
 
       // Check if the count is above 100 and start changing the background color
-      if (state.money > 1000 && !intervalId) {
+      if (state.money > 10000 && !intervalId) {
         intervalId = setInterval(changeBackgroundColor, 1000);
       } else if (state.money <= 1000 && intervalId) {
         clearInterval(intervalId);
@@ -108,7 +109,7 @@ function formatMoney(amount) {
 function calculateIncomePerSecond() {
   let income = 0;
   for (let [business, data] of Object.entries(state.businesses)) {
-      income += data.baseIncome * data.count;  
+      income += data.baseIncome * data.count * data.baseIncome * data.count;  
   }
   return income;
 }
@@ -175,7 +176,7 @@ document.getElementById('increment-btn').addEventListener('click', (e) => {
 clickUpgradeBtn.addEventListener('click', () => {
   if (state.money >= state.clickUpgradeCost) {
       state.money -= state.clickUpgradeCost;
-      state.clickPower *= 1.5;
+      state.clickPower *= 2;
       state.clickUpgradeCost *= 2;
       updateDisplays();
   }
